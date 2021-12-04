@@ -13,19 +13,52 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            DateTime dataFimPagamento = new DateTime(2021, 11, 13);
+            // pagina?argumentos
+            //12345678
 
-            DateTime dataCorrente = DateTime.Now;
-
-            TimeSpan diferenca = TimeSpan.FromMinutes(60);//dataFimPagamento - dataCorrente;
-
-            Console.WriteLine(dataFimPagamento);
-            Console.WriteLine(dataCorrente);
+            //moedaOrigem=real&moedaDestino=dolar
+            //                             |
+            //             ----------------
 
 
-            string mensagem = "Vencimento em: " + TimeSpanHumanizeExtensions.Humanize(diferenca);
+            string palavra = "moedaOrigem=real&moedaDestino=dolar";
+            string nomeArgumento = "moedaDestino";
 
-            Console.WriteLine(mensagem);
+            int indice = palavra.IndexOf(nomeArgumento);
+            Console.WriteLine(indice);
+
+            Console.WriteLine("Tamanho da string nomeArgumento: " + nomeArgumento.Length);
+
+            Console.WriteLine(palavra);
+
+            Console.WriteLine(palavra.Substring(indice));
+            Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length + 1));
+            Console.ReadLine();
+
+
+
+
+
+            // Testando o IsNullOrEmpty
+            string textoVazio = "";
+            string textoNulo = null;
+            string textoQualquer = "hsauihsauisahiusah";
+
+            Console.WriteLine(string.IsNullOrEmpty(textoVazio));
+            Console.WriteLine(string.IsNullOrEmpty(textoNulo));
+            Console.WriteLine(string.IsNullOrEmpty(textoQualquer));
+
+            Console.ReadLine();
+
+            string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
+
+            int indiceInterrogacao = url.IndexOf('?');
+
+            Console.WriteLine(indiceInterrogacao);
+
+            Console.WriteLine(url);
+            string argumentos = url.Substring(indiceInterrogacao + 1);
+            Console.WriteLine(argumentos);
 
             Console.ReadLine();
         }
